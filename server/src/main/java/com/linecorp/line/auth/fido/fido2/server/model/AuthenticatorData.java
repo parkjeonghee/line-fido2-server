@@ -32,7 +32,12 @@ public class AuthenticatorData {
 
     static final int UP_MASK = 1;
     static final int UV_MASK = 1 << 2;
+
+    static final int BE_MASK = 1 << 3;
+
+    static final int BS_MASK = 1 << 4;
     static final int AT_MASK = 1 << 6;
+
     static final int ED_MASK = 1 << 7;
 
     private byte[] rpIdHash;
@@ -78,6 +83,8 @@ public class AuthenticatorData {
         boolean userPresent = (flags & UP_MASK) == UP_MASK;
         boolean userVerified = (flags & UV_MASK) == UV_MASK;
         boolean atIncluded = (flags & AT_MASK) == AT_MASK;
+        boolean backupEligibility = (flags & BE_MASK) == BE_MASK;
+        boolean backupState = (flags & BS_MASK) == BS_MASK;
 
         AttestedCredentialData attestedCredentialData = null;
 
